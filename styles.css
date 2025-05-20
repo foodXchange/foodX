@@ -1,0 +1,910 @@
+/* 1. RESET & DEFAULTS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. CSS VARIABLES FOR BRANDING */
+:root {
+  /* Food Exchange Brand Colors */
+  --primary-color: #00A4A7; /* Teal */
+  --secondary-color: #FF8A00; /* Orange */
+  --background-color: #F5F7FA; /* Light Gray */
+  --text-color: #333333; /* Dark Gray */
+  --accent-color: #4CAF50; /* Green */
+  --highlight-color: #2196F3; /* Blue */
+}
+
+/* CUSTOM BULLETS: Create branded bullet points */
+.custom-bullets {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.custom-bullets li {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.custom-bullets li::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--secondary-color); /* Orange bullets */
+  border-radius: 50%;
+}
+
+/* Text colors */
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-family: 'Causten', 'David Libre', 'Roboto Serif', Arial, sans-serif;
+}
+
+h1, h2 {
+  color: var(--primary-color);
+}
+
+h3 {
+  color: var(--secondary-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
+/* Background colors for sections */
+header {
+  background-color: white;
+}
+
+.feature-box {
+  background-color: white;
+  border-left: 4px solid var(--primary-color);
+}
+
+.cta-section {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* FOOTER: Add proper styling */
+footer {
+  background-color: #333;
+  color: white;
+  padding-top: 3rem;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Buttons */
+.button-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+/* CALL TO ACTION BUTTONS */
+.cta-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #008b8e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cta-button.secondary {
+  background-color: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+  background-color: #f0f9f9;
+}
+.whatsapp-button {
+  background-color: #25D366; /* WhatsApp green */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E; /* Darker WhatsApp green */
+}
+
+.whatsapp-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="white" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/* 3. TYPOGRAPHY */
+/* stylelint-disable-next-line comment-word-disallowed-list */
+/* For Causten font family */
+/* For Causten Regular */
+@font-face {
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* For Causten Bold */
+@font-face {
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* For Causten Light */
+@font-face {
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* For Causten Medium */
+@font-face {
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* For Causten SemiBold */
+@font-face {
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* For Causten ExtraBold */
+@font-face {
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* For Causten Black */
+@font-face {
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* For Causten Thin */
+@font-face {
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* For Causten ExtraLight */
+@font-face {
+  font-family: 'Causten';
+  src: url('assets/fonts/Causten/Causten-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+/* For David Libre */
+/* For David Libre Regular */
+@font-face {
+  font-family: 'David Libre';
+  src: url('assets/fonts/David Libre/DavidLibre-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* For David Libre Bold */
+@font-face {
+  font-family: 'David Libre';
+  src: url('assets/fonts/David Libre/DavidLibre-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* For David Libre Medium */
+@font-face {
+  font-family: 'David Libre';
+  src: url('assets/fonts/David Libre/DavidLibre-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* For Roboto Serif */
+/* For Roboto Serif Regular */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* For Roboto Serif Bold */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* For Roboto Serif Italic */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* For Roboto Serif Bold Italic */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* For Roboto Serif Light */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* For Roboto Serif Medium */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* For Roboto Serif SemiBold */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* For Roboto Serif ExtraBold */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* For Roboto Serif Black */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* For Roboto Serif Thin */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* For Roboto Serif ExtraLight */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('assets/fonts/Roboto Serif/RobotoSerif_28pt-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+/* 3. LAYOUT & CONTAINERS */
+/* Page structure styles will go here */
+
+/* Base responsive structure */
+/* Removed duplicate universal selector to avoid conflicts */
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive typography */
+html {
+  font-size: 16px; /* Base font size */
+}
+
+h1 {
+  font-size: 2.5rem; /* 40px on desktop */
+}
+
+h2 {
+  font-size: 2rem; /* 32px on desktop */
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px on desktop */
+}
+
+p, li {
+  font-size: 1rem; /* 16px on desktop */
+}
+
+/* Responsive layout using CSS Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.feature-section {
+  grid-column: span 4; /* 3 columns on desktop */
+}
+
+/* Flexbox for flexible layouts */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.flex-item {
+  flex: 1 1 300px; /* Grow, shrink, base width */
+}
+
+/* Media queries for different screen sizes */
+/* Tablet */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2rem; /* 32px on tablet */
+  }
+  
+  h2 {
+    font-size: 1.75rem; /* 28px on tablet */
+  }
+  
+  h3 {
+    font-size: 1.25rem; /* 20px on tablet */
+  }
+  
+  .feature-section {
+    grid-column: span 6; /* 2 columns on tablet */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.75rem; /* 28px on mobile */
+  }
+  
+  h2 {
+    font-size: 1.5rem; /* 24px on mobile */
+  }
+  
+  h3 {
+    font-size: 1.25rem; /* 20px on mobile */
+  }
+  
+  .feature-section {
+    grid-column: span 12; /* Full width on mobile */
+  }
+  
+  /* Stack navigation on mobile */
+  .main-nav ul {
+    flex-direction: column;
+  } 
+}
+/*Line Spacing (Controlling Space Between Lines)*/
+/* Global line spacing */
+body {
+  line-height: 1.6; /* 1.6 times the font size - good readable default */
+}
+
+/* Specific line spacing for different elements */
+h1, h2, h3 {
+  line-height: 1.3; /* Tighter spacing for headings */
+}
+
+p {
+  line-height: 1.6; /* Standard for paragraphs */
+  margin-bottom: 1.2rem; /* Space between paragraphs */
+}
+
+/* For text with larger font size */
+.hero-text {
+  font-size: 1.2rem;
+  line-height: 1.8; /* More space for larger text */
+}
+
+/* For dense information */
+.technical-info {
+  line-height: 1.7; /* More space for complex content */
+}
+
+/* For lists */
+ul, ol {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem; /* Space between list items */
+}
+
+/* Letter spacing for headings (optional) */
+h1 {
+  letter-spacing: -0.5px; /* Slightly tighter for large headers */
+}
+
+/* For small text */
+.small-text {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
+}   
+
+
+
+/* 4. COMPONENTS */
+/* Specific element styles like buttons, cards, etc. */
+/* Video- Responsive*/ 
+/* Video Section Styling */
+.video-section {
+  margin: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.video-section p {
+  max-width: 700px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+/* Responsive Video Container */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  margin: 0 auto;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Optional: Video Background and Accent */
+.video-section::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--secondary-color);
+  opacity: 0.1;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+
+/* Video Thumbnail and Play Button */
+.custom-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.video-link:hover .video-thumbnail {
+  filter: brightness(0.8);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.video-link:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+/* VIDEO CONTAINER: Improve styling */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  margin: 0 auto 2rem;
+  border: 1px solid rgba(0, 164, 167, 0.2); /* Subtle teal border */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* 5. UTILITIES */
+/* Helper classes, responsive utilities, etc. */
+/* RESPONSIVE IMPROVEMENTS */
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    text-align: left;
+  }
+  
+  h1 {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-container {
+    flex-direction: column;
+  }
+  
+.footer-container > div {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+}
+/* Demo Request Form */
+.form-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.form-section.active {
+  display: flex;
+}
+
+.form-container {
+  background-color: white;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.form-header h3 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+form {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #444;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 164, 167, 0.2);
+}
+
+small {
+  color: #666;
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+}
+
+.form-footer {
+  margin-top: 24px;
+  text-align: right;
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #008b8e;
+}
+
+/* stylelint-disable selector-class-pattern */
+.cofounder-cta-section {
+  background-color: #f0fafa; /* Light teal background */
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  margin: 4rem 0;
+  border-left: 5px solid var(--primary-color);
+}
+
+.cofounder-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cofounder-content h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.cofounder-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.benefit-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.benefit-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.benefit-text h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--secondary-color);
+}
+
+.benefit-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.cofounder-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .cofounder-benefits {
+    grid-template-columns: 1fr;
+  }
+  
+  .cofounder-buttons {
+    flex-direction: column;
+  }
+  
+  .cofounder-cta-section {
+    padding: 2rem 1rem;
+  }
+}
+/* stylelint-enable selector-class-pattern */
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body h4 {
+  color: var(--secondary-color);
+  margin: 24px 0 16px 0;
+}
+
+.modal-body h4:first-child {
+  margin-top: 0;
+}
+
+.modal-cta {
+  margin-top: 32px;
+  text-align: center;
+  padding: 24px;
+  background-color: #f0fafa;
+  border-radius: 8px;
+}
+
+.modal-cta p {
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
